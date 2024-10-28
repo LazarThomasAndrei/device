@@ -64,11 +64,7 @@ void loop() {
   distanceCm2 = duration2 * SOUND_SPEED/2;
   delay(1000);	
   delay(500);
-  if (distanceCm2 < 30 && distanceCm1 < 30 )
-    stare = "false" ;
-  else
-    stare = "true";
-
+ stare = (distanceCm2 < 30 || distanceCm1 < 30) ? "false" : "true";
  Serial.println(distanceCm1); 
  Serial.println(distanceCm2);
  String patchBody = "{\"uuid\": \"" + uuid + "\", \"battery\": 100, \"freeSpot\": " + stare+ "}";
